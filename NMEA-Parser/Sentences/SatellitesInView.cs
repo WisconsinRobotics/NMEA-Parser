@@ -32,6 +32,21 @@ namespace NMEA_Parser.Sentences
             get { return satellites; }
         }
 
+        public int TotalMessages
+        {
+            get { return totalNumberMessages; }
+        }
+
+        public int MessageNumber
+        {
+            get { return messageNumber; }
+        }
+
+        public int NumberSatellites
+        {
+            get { return numSatellites; }
+        }
+
         protected override bool ParsePayload(string[] data)
         {
             // attempt to parse total # of messages

@@ -92,12 +92,12 @@ namespace NMEA_Parser
 
         protected byte ComputeChecksum(string s)
         {
-            // TODO: NOT CORRECT
-            // Between $ and * 
-            byte[] bytes = Encoding.ASCII.GetBytes(s);
+            Match m = Regex.Match(s, @"\$(.*)\*");
+            if (!m.Success)
+                throw new ArgumentException("Malformed sentence supplied to ComputeChecksum.");
 
             byte checksum = 0;
-            foreach (byte b in bytes)
+            foreach (byte b in Encoding.ASCII.GetBytes(m.Groups[1].Value))
                 checksum ^= b;
 
             return checksum;
