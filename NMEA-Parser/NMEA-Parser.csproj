@@ -40,19 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Identifier.Designer.cs">
+    <Compile Include="TalkerIdentifier.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Identifier.resx</DependentUpon>
+      <DependentUpon>TalkerIdentifier.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sentence.cs" />
     <Compile Include="Sentences\GeographicPositionLatLong.cs" />
+    <Compile Include="Sentences\SatellitesInView.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Identifier.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Identifier.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="TalkerIdentifier.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TalkerIdentifier.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

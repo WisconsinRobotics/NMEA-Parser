@@ -8,11 +8,11 @@ namespace NMEA_Parser
     {
         const int MAX_SENTENCE_LENGTH = 83; // 80 + $ + <CR><LF>
         const int MIN_SENTENCE_LENGTH = 8; // $ttsss<CR><LF>
-        const char VALID_CHAR = 'A';
-        const char INVALID_CHAR = 'V';
+        protected const char VALID_CHAR = 'A';
+        protected const char INVALID_CHAR = 'V';
 
-        protected string source;
-        protected int checksum;
+        protected string talkerIdentifier;
+        protected byte checksum;
 
         public bool Parse(string sentence, bool strict = false)
         {
@@ -24,32 +24,58 @@ namespace NMEA_Parser
                 return false;
 
             // start & end checks
-            if (sentence[0] != '$' || (sentence.Substring(sentence.Length - 2) != "\r\n"))
+            if (sentence[0] != '$' || (strict && sentence.Substring(sentence.Length - 2) != "\r\n"))
                 return false;
 
-            Match m = Regex.Match(sentence, @"\$([A-Z]{2})([A-Z]{3})");
-            if (!m.Success)
+            Match headerMatch = Regex.Match(sentence, @"\$([A-Z]{2})([A-Z]{3})");
+            if (!headerMatch.Success)
                 return false;
 
             // source device is always the first 2 letters
-            source = m.Groups[0].Value;
+            talkerIdentifier = headerMatch.Groups[1].Value;
 
             // check identifier
-            if (m.Groups[1].Value != Identifier)
+            if (headerMatch.Groups[2].Value != SentenceIdentifier)
+                return false;
+
+            // parse checksum
+            Match checksumMatch = Regex.Match(sentence, @"\*([1-9A-F]{2})$");
+            if (!checksumMatch.Success)
+                return false;
+
+            try
+            {
+                checksum = Convert.ToByte(checksumMatch.Groups[1].Value, 16);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            // verify checksum
+            if (!VerifyChecksum(sentence))
                 return false;
 
             // parse the rest of the packet
-            ParsePayload(sentence.Substring(m.Length + 1).Split(new char[] { ',' }));
+            int dataLength = sentence.Length - headerMatch.Length - checksumMatch.Length;
 
-            return true;
+            // if the sentence is malformed and causes parsing to fail, just return false
+            try
+            {
+                return ParsePayload(sentence.Substring(headerMatch.Length + 1, dataLength).Split(new char[] { ',' }));
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
-        public string Source
+        public string TalkerIdentifier
         {
-            get { return source; }
+            get { return talkerIdentifier; }
         }
 
-        public abstract string Identifier
+        public abstract string SentenceIdentifier
         {
             get;
         }
@@ -57,17 +83,17 @@ namespace NMEA_Parser
         public string GetQuerySentence(string requester, string listener)
         {
             if (requester.Length != 2 || listener.Length != 2)
-                throw new ArgumentException("Invalid length for requester/listener identifiers. Use the Identifier class!");
+                throw new ArgumentException("Invalid length for requester/listener identifiers. Use the TalkerIdentifier class!");
 
-            return string.Format("${0}{1}Q,{2}\r\n", requester, listener, Identifier);
+            return string.Format("${0}{1}Q,{2}\r\n", requester, listener, SentenceIdentifier);
         }
 
-        protected abstract void ParsePayload(string[] data);
+        protected abstract bool ParsePayload(string[] data);
 
         protected byte ComputeChecksum(string s)
         {
-        // TODO: NOT CORRECT
-        // Between $ and * 
+            // TODO: NOT CORRECT
+            // Between $ and * 
             byte[] bytes = Encoding.ASCII.GetBytes(s);
 
             byte checksum = 0;
@@ -79,7 +105,8 @@ namespace NMEA_Parser
 
         protected bool VerifyChecksum(string s)
         {
-            return ComputeChecksum(s) == 0;
+            return true;
+            //return ComputeChecksum(s) == 0;
         }
     }
 }

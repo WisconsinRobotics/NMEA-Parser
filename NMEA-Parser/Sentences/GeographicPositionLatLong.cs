@@ -5,12 +5,12 @@ namespace NMEA_Parser.Sentences
     public class GeographicPositionLatLong : Sentence
     {
 
-        public override string Identifier
+        public override string SentenceIdentifier
         {
             get { return "GLL"; }
         }
 
-        protected override void ParsePayload(string[] data)
+        protected override bool ParsePayload(string[] data)
         {
             throw new NotImplementedException();
         }

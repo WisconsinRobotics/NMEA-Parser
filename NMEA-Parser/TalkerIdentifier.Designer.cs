@@ -22,24 +22,24 @@ namespace NMEA_Parser {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Identifier {
+    public class TalkerIdentifier {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Identifier() {
+        internal TalkerIdentifier() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NMEA_Parser.Identifier", typeof(Identifier).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NMEA_Parser.TalkerIdentifier", typeof(TalkerIdentifier).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace NMEA_Parser {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to AG.
         /// </summary>
-        internal static string AG {
+        public static string AG {
             get {
                 return ResourceManager.GetString("AG", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to AP.
         /// </summary>
-        internal static string AP {
+        public static string AP {
             get {
                 return ResourceManager.GetString("AP", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to CD.
         /// </summary>
-        internal static string CD {
+        public static string CD {
             get {
                 return ResourceManager.GetString("CD", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to CR.
         /// </summary>
-        internal static string CR {
+        public static string CR {
             get {
                 return ResourceManager.GetString("CR", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to CS.
         /// </summary>
-        internal static string CS {
+        public static string CS {
             get {
                 return ResourceManager.GetString("CS", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to CT.
         /// </summary>
-        internal static string CT {
+        public static string CT {
             get {
                 return ResourceManager.GetString("CT", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to CV.
         /// </summary>
-        internal static string CV {
+        public static string CV {
             get {
                 return ResourceManager.GetString("CV", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to CX.
         /// </summary>
-        internal static string CX {
+        public static string CX {
             get {
                 return ResourceManager.GetString("CX", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to DF.
         /// </summary>
-        internal static string DF {
+        public static string DF {
             get {
                 return ResourceManager.GetString("DF", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to DM.
         /// </summary>
-        internal static string DM {
+        public static string DM {
             get {
                 return ResourceManager.GetString("DM", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to EC.
         /// </summary>
-        internal static string EC {
+        public static string EC {
             get {
                 return ResourceManager.GetString("EC", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to EP.
         /// </summary>
-        internal static string EP {
+        public static string EP {
             get {
                 return ResourceManager.GetString("EP", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to ER.
         /// </summary>
-        internal static string ER {
+        public static string ER {
             get {
                 return ResourceManager.GetString("ER", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to GP.
         /// </summary>
-        internal static string GP {
+        public static string GP {
             get {
                 return ResourceManager.GetString("GP", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to HC.
         /// </summary>
-        internal static string HC {
+        public static string HC {
             get {
                 return ResourceManager.GetString("HC", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to HE.
         /// </summary>
-        internal static string HE {
+        public static string HE {
             get {
                 return ResourceManager.GetString("HE", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to HN.
         /// </summary>
-        internal static string HN {
+        public static string HN {
             get {
                 return ResourceManager.GetString("HN", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to II.
         /// </summary>
-        internal static string II {
+        public static string II {
             get {
                 return ResourceManager.GetString("II", resourceCulture);
             }
@@ -225,7 +225,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to IN.
         /// </summary>
-        internal static string IN {
+        public static string IN {
             get {
                 return ResourceManager.GetString("IN", resourceCulture);
             }
@@ -234,7 +234,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to LC.
         /// </summary>
-        internal static string LC {
+        public static string LC {
             get {
                 return ResourceManager.GetString("LC", resourceCulture);
             }
@@ -243,7 +243,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to P.
         /// </summary>
-        internal static string P {
+        public static string P {
             get {
                 return ResourceManager.GetString("P", resourceCulture);
             }
@@ -252,7 +252,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to RA.
         /// </summary>
-        internal static string RA {
+        public static string RA {
             get {
                 return ResourceManager.GetString("RA", resourceCulture);
             }
@@ -261,7 +261,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to SD.
         /// </summary>
-        internal static string SD {
+        public static string SD {
             get {
                 return ResourceManager.GetString("SD", resourceCulture);
             }
@@ -270,7 +270,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to SN.
         /// </summary>
-        internal static string SN {
+        public static string SN {
             get {
                 return ResourceManager.GetString("SN", resourceCulture);
             }
@@ -279,7 +279,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to SS.
         /// </summary>
-        internal static string SS {
+        public static string SS {
             get {
                 return ResourceManager.GetString("SS", resourceCulture);
             }
@@ -288,7 +288,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to TI.
         /// </summary>
-        internal static string TI {
+        public static string TI {
             get {
                 return ResourceManager.GetString("TI", resourceCulture);
             }
@@ -297,7 +297,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to VD.
         /// </summary>
-        internal static string VD {
+        public static string VD {
             get {
                 return ResourceManager.GetString("VD", resourceCulture);
             }
@@ -306,7 +306,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to VW.
         /// </summary>
-        internal static string VW {
+        public static string VW {
             get {
                 return ResourceManager.GetString("VW", resourceCulture);
             }
@@ -315,7 +315,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to WI.
         /// </summary>
-        internal static string WI {
+        public static string WI {
             get {
                 return ResourceManager.GetString("WI", resourceCulture);
             }
@@ -324,7 +324,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to YX.
         /// </summary>
-        internal static string YX {
+        public static string YX {
             get {
                 return ResourceManager.GetString("YX", resourceCulture);
             }
@@ -333,7 +333,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to ZA.
         /// </summary>
-        internal static string ZA {
+        public static string ZA {
             get {
                 return ResourceManager.GetString("ZA", resourceCulture);
             }
@@ -342,7 +342,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to ZC.
         /// </summary>
-        internal static string ZC {
+        public static string ZC {
             get {
                 return ResourceManager.GetString("ZC", resourceCulture);
             }
@@ -351,7 +351,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to ZQ.
         /// </summary>
-        internal static string ZQ {
+        public static string ZQ {
             get {
                 return ResourceManager.GetString("ZQ", resourceCulture);
             }
@@ -360,7 +360,7 @@ namespace NMEA_Parser {
         /// <summary>
         ///   Looks up a localized string similar to ZV.
         /// </summary>
-        internal static string ZV {
+        public static string ZV {
             get {
                 return ResourceManager.GetString("ZV", resourceCulture);
             }
