@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using NMEA_Parser;
+using NMEA_Parser.Util;
 using NMEA_Parser.Sentences;
 
 namespace NMEA_Parser_Tests

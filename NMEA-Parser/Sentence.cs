@@ -6,10 +6,11 @@ namespace NMEA_Parser
 {
     public abstract class Sentence
     {
-        const int MAX_SENTENCE_LENGTH = 83; // 80 + $ + <CR><LF>
-        const int MIN_SENTENCE_LENGTH = 8; // $ttsss<CR><LF>
+        const int MAX_SENTENCE_LENGTH = 82; // Section 5.3
+        const int MIN_SENTENCE_LENGTH = 12; // $ttsss,*<c1><c2><CR><LF>
         protected const char VALID_CHAR = 'A';
         protected const char INVALID_CHAR = 'V';
+        protected const int VARIABLE_PAYLOAD_LENGTH = -1;
 
         protected string talkerIdentifier;
         protected byte checksum;
@@ -24,9 +25,11 @@ namespace NMEA_Parser
                 return false;
 
             // start & end checks
+            // TODO: support encapsulation sentences ('!')
             if (sentence[0] != '$' || (strict && sentence.Substring(sentence.Length - 2) != "\r\n"))
                 return false;
 
+            // TODO: Support proprietary sentences, which has an ID of P.
             Match headerMatch = Regex.Match(sentence, @"\$([A-Z]{2})([A-Z]{3})");
             if (!headerMatch.Success)
                 return false;
@@ -59,10 +62,16 @@ namespace NMEA_Parser
             // parse the rest of the packet
             int dataLength = sentence.Length - headerMatch.Length - checksumMatch.Length;
 
-            // if the sentence is malformed and causes parsing to fail, just return false
+            // payload field length check
+            // fail only if there's a length mismatch and it's not a variable length sentence
+            string[] payload = sentence.Substring(headerMatch.Length + 1, dataLength).Split(new char[] { ',' });
+            if (payload.Length != NumberFields && NumberFields != VARIABLE_PAYLOAD_LENGTH)
+                return false;
+
+            // if sentence is malformed and can't be parsed, return false
             try
             {
-                return ParsePayload(sentence.Substring(headerMatch.Length + 1, dataLength).Split(new char[] { ',' }));
+                return ParsePayload(payload);
             }
             catch (Exception)
             {
@@ -76,6 +85,11 @@ namespace NMEA_Parser
         }
 
         public abstract string SentenceIdentifier
+        {
+            get;
+        }
+
+        protected abstract int NumberFields
         {
             get;
         }

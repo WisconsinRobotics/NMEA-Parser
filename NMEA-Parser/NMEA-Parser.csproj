@@ -40,7 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TalkerIdentifier.Designer.cs">
+    <Compile Include="Util\CharacterSymbol.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CharacterSymbol.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Sentences\DatumReference.cs" />
+    <Compile Include="Util\TalkerIdentifier.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TalkerIdentifier.resx</DependentUpon>
@@ -49,9 +55,14 @@
     <Compile Include="Sentence.cs" />
     <Compile Include="Sentences\GeographicPositionLatLong.cs" />
     <Compile Include="Sentences\SatellitesInView.cs" />
+    <Compile Include="Util\GeographicPosition.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="TalkerIdentifier.resx">
+    <EmbeddedResource Include="Util\CharacterSymbol.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CharacterSymbol.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Util\TalkerIdentifier.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>TalkerIdentifier.Designer.cs</LastGenOutput>
     </EmbeddedResource>

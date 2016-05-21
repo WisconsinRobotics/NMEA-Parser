@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace NMEA_Parser.Sentences
 {
@@ -45,6 +46,11 @@ namespace NMEA_Parser.Sentences
         public int NumberSatellites
         {
             get { return numSatellites; }
+        }
+
+        protected override int NumberFields
+        {
+            get { return VARIABLE_PAYLOAD_LENGTH; }
         }
 
         protected override bool ParsePayload(string[] data)

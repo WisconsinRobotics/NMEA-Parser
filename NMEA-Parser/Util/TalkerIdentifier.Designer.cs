@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NMEA_Parser {
+namespace NMEA_Parser.Util {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace NMEA_Parser {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NMEA_Parser.TalkerIdentifier", typeof(TalkerIdentifier).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NMEA_Parser.Util.TalkerIdentifier", typeof(TalkerIdentifier).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
