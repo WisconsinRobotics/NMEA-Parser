@@ -64,7 +64,7 @@ namespace NMEA_Parser
 
             // payload field length check
             // fail only if there's a length mismatch and it's not a variable length sentence
-            string[] payload = sentence.Substring(headerMatch.Length + 1, dataLength).Split(new char[] { ',' });
+            string[] payload = sentence.Substring(headerMatch.Length + 1, dataLength).Split(',');
             if (payload.Length != NumberFields && NumberFields != VARIABLE_PAYLOAD_LENGTH)
                 return false;
 

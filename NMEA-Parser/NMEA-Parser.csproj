@@ -40,12 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Sentences\RecMinSpecificGnssData.cs" />
     <Compile Include="Util\CharacterSymbol.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CharacterSymbol.resx</DependentUpon>
     </Compile>
     <Compile Include="Sentences\DatumReference.cs" />
+    <Compile Include="Util\PositioningSystemIndicator.cs" />
     <Compile Include="Util\TalkerIdentifier.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using NMEA_Parser.Util;
 
 namespace NMEA_Parser.Sentences
@@ -57,10 +58,7 @@ namespace NMEA_Parser.Sentences
             position.LatitudeValid = data[5] == CharacterSymbol.DataValid;
 
             // parse date the data was collected
-            if (!DateTime.TryParse(data[7], out timeDataCollected))
-                return false;
-
-            return true;
+            return DateTime.TryParseExact(data[7], "hhmmss.f", CultureInfo.InvariantCulture, DateTimeStyles.None, out timeDataCollected);
         }
     }
 }
