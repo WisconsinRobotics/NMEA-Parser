@@ -86,6 +86,7 @@ namespace NMEA_Parser.Sentences
             if (!GeographicPosition.LatitudeMap.ContainsKey(data[3]))
                 return false;
 
+            Position.Latitude /= 100;
             Position.LatitudeDirection = GeographicPosition.LatitudeMap[data[3]];
             Position.LatitudeValid = true;
 
@@ -96,6 +97,7 @@ namespace NMEA_Parser.Sentences
             if (!GeographicPosition.LongitudeMap.ContainsKey(data[5]))
                 return false;
 
+            Position.Longitude /= 100;
             Position.LongitudeDirection = GeographicPosition.LongitudeMap[data[5]];
             Position.LongitudeValid= true;
 

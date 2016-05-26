@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NMEA-Parser", "NMEA-Parser\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NMEA-Parser-Tests", "NMEA-Parser-Tests\NMEA-Parser-Tests.csproj", "{FB386E91-149F-47A5-B1C6-EDCAE0570F4E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NMEA-Parser-Sample", "NMEA-Parser-Sample\NMEA-Parser-Sample.csproj", "{116D4ABF-5961-4AD2-9103-257126C6A59A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FB386E91-149F-47A5-B1C6-EDCAE0570F4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB386E91-149F-47A5-B1C6-EDCAE0570F4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB386E91-149F-47A5-B1C6-EDCAE0570F4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{116D4ABF-5961-4AD2-9103-257126C6A59A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{116D4ABF-5961-4AD2-9103-257126C6A59A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{116D4ABF-5961-4AD2-9103-257126C6A59A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{116D4ABF-5961-4AD2-9103-257126C6A59A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

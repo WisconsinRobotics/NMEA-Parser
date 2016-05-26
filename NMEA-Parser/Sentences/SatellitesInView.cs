@@ -70,6 +70,9 @@ namespace NMEA_Parser.Sentences
             // initialize satellite data
             satellites = new SatelliteData[numSatellites];
 
+            // WARNING: THIS IS INCORRECT
+            // numSatellites is NOT the number of satellites in this packet
+            // rather, it is the TOTAL # of satellites across all packets!
             int satDataOffset = 3;
             int satDataSize = 4;
             for (int i = 0; i < numSatellites; i++)

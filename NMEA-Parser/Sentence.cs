@@ -42,7 +42,7 @@ namespace NMEA_Parser
                 return false;
 
             // parse checksum
-            Match checksumMatch = Regex.Match(sentence, @"\*([1-9A-F]{2})$");
+            Match checksumMatch = Regex.Match(sentence, @"\*([0-9A-F]{2})$");
             if (!checksumMatch.Success)
                 return false;
 
@@ -60,7 +60,7 @@ namespace NMEA_Parser
                 return false;
 
             // parse the rest of the packet
-            int dataLength = sentence.Length - headerMatch.Length - checksumMatch.Length;
+            int dataLength = sentence.Length - headerMatch.Length - checksumMatch.Length - 1;
 
             // payload field length check
             // fail only if there's a length mismatch and it's not a variable length sentence

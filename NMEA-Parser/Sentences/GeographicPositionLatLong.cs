@@ -39,6 +39,7 @@ namespace NMEA_Parser.Sentences
             if (!GeographicPosition.LatitudeMap.ContainsKey(data[1]))
                 return false;
 
+            position.Latitude /= 100;
             position.LatitudeDirection = GeographicPosition.LatitudeMap[data[1]];
 
             // Technically: A => valid, V => invalid.
@@ -54,8 +55,9 @@ namespace NMEA_Parser.Sentences
             if (!GeographicPosition.LongitudeMap.ContainsKey(data[4]))
                 return false;
 
-            position.LatitudeDirection = GeographicPosition.LongitudeMap[data[4]];
-            position.LatitudeValid = data[5] == CharacterSymbol.DataValid;
+            position.Longitude /= 100;
+            position.LongitudeDirection = GeographicPosition.LongitudeMap[data[4]];
+            position.LongitudeValid = data[5] == CharacterSymbol.DataValid;
 
             // parse date the data was collected
             return DateTime.TryParseExact(data[7], "hhmmss.f", CultureInfo.InvariantCulture, DateTimeStyles.None, out timeDataCollected);

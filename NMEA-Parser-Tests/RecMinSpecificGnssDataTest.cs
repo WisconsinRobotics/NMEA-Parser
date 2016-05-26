@@ -23,8 +23,8 @@ namespace NMEA_Parser_Tests
             Assert.IsFalse(rmcMsg.ModeIndicator.Valid);
             Assert.AreEqual(rmcMsg.ModeIndicator.Indicator, PositionModeIndicator.INVALID);
             Assert.IsTrue(rmcMsg.NavigationReceiverWarning);
-            Assert.IsTrue(Math.Abs(rmcMsg.Position.Latitude - 4304.32462) < POSITION_THRESHOLD);
-            Assert.IsTrue(Math.Abs(rmcMsg.Position.Longitude - 8924.64855) < POSITION_THRESHOLD);
+            Assert.IsTrue(Math.Abs(rmcMsg.Position.Latitude - 43.0432462) < POSITION_THRESHOLD);
+            Assert.IsTrue(Math.Abs(rmcMsg.Position.Longitude - 89.2464855) < POSITION_THRESHOLD);
             Assert.AreEqual(rmcMsg.Position.LatitudeDirection, Direction.NORTH);
             Assert.AreEqual(rmcMsg.Position.LongitudeDirection, Direction.WEST);
             Assert.AreEqual(rmcMsg.TimeCollected, new DateTime(1999, 08, 22, 00, 05, 48, 200));
