@@ -32,7 +32,7 @@ namespace NMEA_Parser.Sentences
         protected override bool ParsePayload(string[] data)
         {
             // parse latitude value
-            if (!float.TryParse(data[0], out position.Latitude))
+            if (!double.TryParse(data[0], out position.Latitude))
                 return false;
 
             // parse latitude direction
@@ -47,7 +47,7 @@ namespace NMEA_Parser.Sentences
             position.LatitudeValid = data[2] == CharacterSymbol.DataValid;
 
             // parse longitude value
-            if (!float.TryParse(data[3], out position.Longitude))
+            if (!double.TryParse(data[3], out position.Longitude))
                 return false;
 
             // parse latitude direction

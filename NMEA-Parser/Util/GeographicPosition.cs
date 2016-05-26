@@ -29,11 +29,11 @@ namespace NMEA_Parser.Util
             { CharacterSymbol.East, Direction.EAST }
         };
 
-        public float Latitude;
+        public double Latitude;
         public Direction LatitudeDirection;
         public bool LatitudeValid;
 
-        public float Longitude;
+        public double Longitude;
         public Direction LongitudeDirection;
         public bool LongitudeValid;
 

@@ -11,7 +11,8 @@ namespace NMEA_Parser_Tests
     [TestClass]
     public class RecMinSpecificGnssDataTest
     {
-        const double THRESHOLD = 1;
+        const double POSITION_THRESHOLD = 1;
+        const double MAG_VAR_THRESHOLD = 0.1;
 
         [TestMethod]
         public void InvalidRMCTest()
@@ -22,11 +23,12 @@ namespace NMEA_Parser_Tests
             Assert.IsFalse(rmcMsg.ModeIndicator.Valid);
             Assert.AreEqual(rmcMsg.ModeIndicator.Indicator, PositionModeIndicator.INVALID);
             Assert.IsTrue(rmcMsg.NavigationReceiverWarning);
-            Assert.IsTrue(Math.Abs(rmcMsg.Position.Latitude - 4304.32462) < THRESHOLD);
-            Assert.IsTrue(Math.Abs(rmcMsg.Position.Longitude - 8924.64855) < THRESHOLD);
+            Assert.IsTrue(Math.Abs(rmcMsg.Position.Latitude - 4304.32462) < POSITION_THRESHOLD);
+            Assert.IsTrue(Math.Abs(rmcMsg.Position.Longitude - 8924.64855) < POSITION_THRESHOLD);
             Assert.AreEqual(rmcMsg.Position.LatitudeDirection, Direction.NORTH);
             Assert.AreEqual(rmcMsg.Position.LongitudeDirection, Direction.WEST);
             Assert.AreEqual(rmcMsg.TimeCollected, new DateTime(1999, 08, 22, 00, 05, 48, 200));
+            Assert.IsTrue((rmcMsg.MagneticVariation > 0) && (Math.Abs(rmcMsg.MagneticVariation - 1.8) < MAG_VAR_THRESHOLD));
         }
     }
 }

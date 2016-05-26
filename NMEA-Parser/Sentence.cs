@@ -56,7 +56,7 @@ namespace NMEA_Parser
             }
 
             // verify checksum
-            if (!VerifyChecksum(sentence))
+            if (ComputeChecksum(sentence) != checksum)
                 return false;
 
             // parse the rest of the packet
@@ -115,12 +115,6 @@ namespace NMEA_Parser
                 checksum ^= b;
 
             return checksum;
-        }
-
-        protected bool VerifyChecksum(string s)
-        {
-            return true;
-            //return ComputeChecksum(s) == 0;
         }
     }
 }

@@ -80,7 +80,7 @@ namespace NMEA_Parser.Sentences
             NavigationReceiverWarning = data[1] == CharacterSymbol.WarningFlagSet;
 
             // latitude
-            if (!float.TryParse(data[2], out Position.Latitude))
+            if (!double.TryParse(data[2], out Position.Latitude))
                 return false;
 
             if (!GeographicPosition.LatitudeMap.ContainsKey(data[3]))
@@ -90,7 +90,7 @@ namespace NMEA_Parser.Sentences
             Position.LatitudeValid = true;
 
             // longitude
-            if (!float.TryParse(data[4], out Position.Longitude))
+            if (!double.TryParse(data[4], out Position.Longitude))
                 return false;
 
             if (!GeographicPosition.LongitudeMap.ContainsKey(data[5]))
