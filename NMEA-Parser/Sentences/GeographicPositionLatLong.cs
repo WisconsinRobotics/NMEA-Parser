@@ -32,15 +32,8 @@ namespace NMEA_Parser.Sentences
         protected override bool ParsePayload(string[] data)
         {
             // parse latitude value
-            if (!double.TryParse(data[0], out position.Latitude))
+            if (!position.SetLatitude(data[0], data[1]))
                 return false;
-
-            // parse latitude direction
-            if (!GeographicPosition.LatitudeMap.ContainsKey(data[1]))
-                return false;
-
-            position.Latitude /= 100;
-            position.LatitudeDirection = GeographicPosition.LatitudeMap[data[1]];
 
             // Technically: A => valid, V => invalid.
             // It's probably okay to treat as invalid even if "malformed" and this field 
@@ -48,15 +41,9 @@ namespace NMEA_Parser.Sentences
             position.LatitudeValid = data[2] == CharacterSymbol.DataValid;
 
             // parse longitude value
-            if (!double.TryParse(data[3], out position.Longitude))
+            if (!position.SetLongitude(data[3], data[4]))
                 return false;
 
-            // parse latitude direction
-            if (!GeographicPosition.LongitudeMap.ContainsKey(data[4]))
-                return false;
-
-            position.Longitude /= 100;
-            position.LongitudeDirection = GeographicPosition.LongitudeMap[data[4]];
             position.LongitudeValid = data[5] == CharacterSymbol.DataValid;
 
             // parse date the data was collected

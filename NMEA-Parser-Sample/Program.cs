@@ -36,8 +36,8 @@ namespace NMEA_Parser_Sample
                     Console.WriteLine("Valid: {0}", rmc.ModeIndicator.Valid);
                     Console.WriteLine("Mode: {0}", rmc.ModeIndicator.Indicator);
                     Console.WriteLine("Navigation Receiver Warning: {0}", rmc.NavigationReceiverWarning);
-                    Console.WriteLine("Latitude: {0} | Direction: {1}", rmc.Position.Latitude, rmc.Position.LatitudeDirection);
-                    Console.WriteLine("Longitude: {0} | Direction: {1}", rmc.Position.Longitude, rmc.Position.LongitudeDirection);
+                    Console.WriteLine("Latitude: {0}", rmc.Position.Latitude);
+                    Console.WriteLine("Longitude: {0}", rmc.Position.Longitude);
                     Console.WriteLine("Magnetic Variation: {0}", rmc.MagneticVariation);
                 }
             }

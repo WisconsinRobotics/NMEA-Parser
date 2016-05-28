@@ -80,25 +80,15 @@ namespace NMEA_Parser.Sentences
             NavigationReceiverWarning = data[1] == CharacterSymbol.WarningFlagSet;
 
             // latitude
-            if (!double.TryParse(data[2], out Position.Latitude))
+            if (!Position.SetLatitude(data[2], data[3]))
                 return false;
 
-            if (!GeographicPosition.LatitudeMap.ContainsKey(data[3]))
-                return false;
-
-            Position.Latitude /= 100;
-            Position.LatitudeDirection = GeographicPosition.LatitudeMap[data[3]];
             Position.LatitudeValid = true;
 
             // longitude
-            if (!double.TryParse(data[4], out Position.Longitude))
+            if (!Position.SetLongitude(data[4], data[5]))
                 return false;
 
-            if (!GeographicPosition.LongitudeMap.ContainsKey(data[5]))
-                return false;
-
-            Position.Longitude /= 100;
-            Position.LongitudeDirection = GeographicPosition.LongitudeMap[data[5]];
             Position.LongitudeValid= true;
 
             float.TryParse(data[6], out groundSpeed);

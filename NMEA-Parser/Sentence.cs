@@ -6,6 +6,9 @@ namespace NMEA_Parser
 {
     public abstract class Sentence
     {
+        static readonly Regex HEADER_REGEX = new Regex(@"\$([A-Z]{2})([A-Z]{3})", RegexOptions.Compiled);
+        static readonly Regex CHECKSUM_REGEX = new Regex(@"\*([0-9A-F]{2})$", RegexOptions.Compiled);
+
         const int MAX_SENTENCE_LENGTH = 82; // Section 5.3
         const int MIN_SENTENCE_LENGTH = 12; // $ttsss,*<c1><c2><CR><LF>
         protected const char VALID_CHAR = 'A';
@@ -30,7 +33,7 @@ namespace NMEA_Parser
                 return false;
 
             // TODO: Support proprietary sentences, which has an ID of P.
-            Match headerMatch = Regex.Match(sentence, @"\$([A-Z]{2})([A-Z]{3})");
+            Match headerMatch = HEADER_REGEX.Match(sentence);
             if (!headerMatch.Success)
                 return false;
 
@@ -42,7 +45,7 @@ namespace NMEA_Parser
                 return false;
 
             // parse checksum
-            Match checksumMatch = Regex.Match(sentence, @"\*([0-9A-F]{2})$");
+            Match checksumMatch = CHECKSUM_REGEX.Match(sentence);
             if (!checksumMatch.Success)
                 return false;
 
